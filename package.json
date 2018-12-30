@@ -1,0 +1,24 @@
+{
+  "fitbit": {
+    "appUUID": "f48adf93-eda7-45b2-b6bd-d3dc8f9484ca",
+    "appType": "app",
+    "appDisplayName": "Assistant Relay",
+    "iconFile": "resources/icon.png",
+    "wipeColor": "#673ab7",
+    "requestedPermissions": [
+      "access_internet"
+    ],
+    "buildTargets": [
+      "higgs",
+      "meson"
+    ],
+    "i18n": {
+      "en": {
+        "name": "Assistant Relay"
+      }
+    }
+  },
+  "devDependencies": {
+    "@fitbit/sdk": "~3.0.0"
+  }
+}

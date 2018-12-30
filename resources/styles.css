@@ -1,0 +1,84 @@
+.background {
+  viewport-fill: black;
+}
+
+.tile-list-item {
+  height: 100;
+}
+
+
+.tile-divider-bottom {
+  x: 0;
+  y: 100%;
+  width: 100%;
+  height: 2;
+  fill: blue;
+}
+
+.buttons-on-off {
+  x: 0;
+  y: 35;
+}
+
+.button-on {
+  fill: fb-green;
+}
+
+.button-off {
+  fill: fb-red;
+}
+
+.dim-0 {
+  fill: fb-red;
+  x: 0;
+  y: 30;
+  width: 20%;
+  height: 40;
+}
+
+.dim-1 {
+  fill: orange;
+  x: 20%;
+  y: 30;
+  width: 20%;
+  height: 40;
+}
+
+.dim-2 {
+  fill: grey;
+  x: 40%;
+  y: 30;
+  width: 20%;
+  height: 40;
+}
+
+.dim-3 {
+  fill: yellow;
+  x: 60%;
+  y: 30;
+  width: 20%;
+  height: 40;
+}
+
+.dim-4 {
+  fill: white;
+  x: 80%;
+  y: 30;
+  width: 20%;
+  height: 40;
+}
+
+
+.thing-name {
+  font-family: System-Bold; 
+  font-size: 28;
+  y: -10;
+  x: 0;
+  width: 100%;
+  height: 50%;
+  fill: white;
+  mode: 1;
+  value: 50;
+}
+
+
