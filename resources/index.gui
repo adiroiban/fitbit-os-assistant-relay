@@ -1,4 +1,5 @@
 <svg class="background">
+
   <defs>
     <symbol id="on-off-item" href="#tile-list-item" focusable="false"
             pointer-events="none" system-events="all" display="none">
@@ -11,39 +12,26 @@
       <rect id="tile-divider-bottom" class="tile-divider-bottom" />
 
       <!-- toggle button ON/OFF .. we don't know the initial state -->
-      <svg y="30">
+      <svg id="buttons-on-off" y="30">
         <use id="button-off" class="button-off" href="#square-button-toggle">
           <set href="#text"  attributeName="text-buffer" to="Off" />
         </use>
-        <use id="button-on" class="button-off" href="#square-button-toggle" x="50%" fill="fb-green">
+        <use id="button-on" class="button-on" href="#square-button-toggle">
           <set href="#text"  attributeName="text-buffer" to="On" />
         </use>
       </svg>
-      
-    </symbol>
 
-    <symbol id="dimmable-item" href="#tile-list-item" focusable="false"
-            pointer-events="none" system-events="all" display="none">
-
-      <use id="marquee" class="thing-name" href="#marquee-text">
-        <set href="group/text" attributeName="text-buffer" to="" />
-        <set href="group/separator" attributeName="width" to="100" />
-      </use>
-
-      <rect id="tile-divider-bottom" class="tile-divider-bottom" />
-
-      <!-- toggle button ON/OFF .. we don't know the initial state -->
-      <svg y="20">
+      <!-- Dim buttons -->
+      <svg id="buttons-dim" y="20">
         <rect id="dim-0" class="dim-0" pointer-events="visible"/>
         <rect id="dim-1" class="dim-1" pointer-events="visible"/>
         <rect id="dim-2" class="dim-2" pointer-events="visible"/>
         <rect id="dim-3" class="dim-3" pointer-events="visible"/>
         <rect id="dim-4" class="dim-4" pointer-events="visible"/>
       </svg>
-      
     </symbol>
-    
   </defs>
+
   <use id="things-on-off-list" href="#tile-list">
     <var id="virtual" value="1" />
     <var id="separator-height-bottom" value="2" />
@@ -59,24 +47,6 @@
       <use id="my-pool[7]" href="#on-off-item" class="tile-list-item" />
       <use id="my-pool[8]" href="#on-off-item" class="tile-list-item" />
       <use id="my-pool[9]" href="#on-off-item" class="tile-list-item" />
-    </use>
-  </use>
-
-  <use id="things-dimmable-list" href="#tile-list" y="100">
-    <var id="virtual" value="1" />
-    <var id="separator-height-bottom" value="2" />
-
-    <use id="my-pool" href="#tile-list-pool">
-      <use id="my-pool[0]" href="#dimmable-item" class="tile-list-item" />
-      <use id="my-pool[1]" href="#dimmable-item" class="tile-list-item" />
-      <use id="my-pool[2]" href="#dimmable-item" class="tile-list-item" />
-      <use id="my-pool[3]" href="#dimmable-item" class="tile-list-item" />
-      <use id="my-pool[4]" href="#dimmable-item" class="tile-list-item" />
-      <use id="my-pool[5]" href="#dimmable-item" class="tile-list-item" />
-      <use id="my-pool[6]" href="#dimmable-item" class="tile-list-item" />
-      <use id="my-pool[7]" href="#dimmable-item" class="tile-list-item" />
-      <use id="my-pool[8]" href="#dimmable-item" class="tile-list-item" />
-      <use id="my-pool[9]" href="#dimmable-item" class="tile-list-item" />
     </use>
   </use>
 
