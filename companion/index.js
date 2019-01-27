@@ -11,7 +11,6 @@ messaging.peerSocket.onopen = () => {
 
 // Message socket closes
 messaging.peerSocket.onclose = () => {
-  started = false;
   console.log("Companion Socket Closed");
 };
 
@@ -46,7 +45,7 @@ settingsStorage.onchange = event => {
     })
     return
   }
-  
+
   // Inform the App about the configuration changes.
   // We migth want to only notify about the things changes,
   // and not all settings.

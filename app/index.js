@@ -1,5 +1,5 @@
-import document from "document";
-import * as messaging from "messaging";
+import document from "document"
+import * as messaging from "messaging"
 
 // Store an in memory cache of the configuration.
 let settings = {
@@ -15,19 +15,20 @@ messaging.peerSocket.onmessage = event => {
 
 // Message socket opens
 messaging.peerSocket.onopen = () => {
-  //console.log("App Socket Open");
+    connection_ui.style.display = 'none'
 };
 
 // Message socket closes
 messaging.peerSocket.onclose = () => {
-  //console.log("App Socket Closed");
+    connection_ui.style.display = 'inline'
 };
 
 // Send data to device using Messaging API
 function send(data) {
-  if (messaging.peerSocket.readyState === messaging.peerSocket.OPEN) {
-    messaging.peerSocket.send(data);
+  if (messaging.peerSocket.readyState != messaging.peerSocket.OPEN) {
+    return
   }
+    messaging.peerSocket.send(data)
 }
 
 
@@ -58,20 +59,22 @@ function handleConfiguration(data) {
 
 // ---------- UI handling --------------
 
-
-
+let no_things_ui = document.getElementById('no-things')
+let connection_ui = document.getElementById('no-connection')
 let virtualOnOffList = document.getElementById("things-on-off-list")
 
 virtualOnOffList.delegate = {
   getTileInfo: function(index) {
     return {
       type: "my-pool",
-      value: "Menu item",
       index: index
     };
   },
   configureTile: function(tile, info) {
-    if (info.type == "my-pool") {
+
+      let background = tile.getElementById("stripe")
+      background.style.display = (info.index % 2 == 0) ? 'none' : 'inline'
+
       let data
       let on_off = true
       if (info.index < settings['things_on_off'].length) {
@@ -135,10 +138,21 @@ virtualOnOffList.delegate = {
           console.log(`ON: ${thing_name}`);
           send({'type': 'set_brightness', 'key': thing_name, 'value': '100'})
         };
-      }
     }
   }
 };
+
+/*
+See if we should show the message that things needs to be first configured
+from settings.
+*/
+function checkEmptyPage() {
+  if (virtualOnOffList.length != 0) {
+    no_things_ui.style.display = 'none'
+  } else {
+    no_things_ui.style.display = 'inline'
+  }
+}
 
 // --------- App actions -------------------
 
@@ -149,6 +163,7 @@ function updateThingsOnOff() {
   settings['things_on_off'] = JSON.parse(raw_data);
   // `length` must be set AFTER `delegate`.
   virtualOnOffList.length = settings['things_on_off'].length + settings['things_dimmable'].length
+  checkEmptyPage()
 
 }
 
@@ -159,4 +174,5 @@ function updateThingsDimmable() {
   settings['things_dimmable'] = JSON.parse(raw_data);
   // `length` must be set AFTER `delegate`.
   virtualOnOffList.length = settings['things_on_off'].length + settings['things_dimmable'].length
+  checkEmptyPage()
 }

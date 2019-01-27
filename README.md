@@ -18,7 +18,10 @@ I feel that the UI will be too heavy.
 The app was developed and tested using
 https://github.com/greghesp/assistant-relay.
 
-The app was tested only using the simulator.
+The app only works when connected to the companion.
+
+No data is persisted by the app. It will always retrieve the list of things
+from the companion.
 
 
 # Screenshots

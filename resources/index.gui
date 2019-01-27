@@ -4,15 +4,15 @@
     <symbol id="on-off-item" href="#tile-list-item" focusable="false"
             pointer-events="none" system-events="all" display="none">
 
+      <rect id="stripe" class="thing-stripe"/>
+
       <use id="marquee" class="thing-name" href="#marquee-text">
         <set href="group/text" attributeName="text-buffer" to="" />
         <set href="group/separator" attributeName="width" to="100" />
       </use>
 
-      <rect id="tile-divider-bottom" class="tile-divider-bottom" />
-
       <!-- toggle button ON/OFF .. we don't know the initial state -->
-      <svg id="buttons-on-off" y="30">
+      <svg id="buttons-on-off" class="on-off">
         <use id="button-off" class="button-off" href="#square-button-toggle">
           <set href="#text"  attributeName="text-buffer" to="Off" />
         </use>
@@ -22,7 +22,7 @@
       </svg>
 
       <!-- Dim buttons -->
-      <svg id="buttons-dim" y="20">
+      <svg id="buttons-dim" class="dim">
         <rect id="dim-0" class="dim-0" pointer-events="visible"/>
         <rect id="dim-1" class="dim-1" pointer-events="visible"/>
         <rect id="dim-2" class="dim-2" pointer-events="visible"/>
@@ -49,5 +49,23 @@
       <use id="my-pool[9]" href="#on-off-item" class="tile-list-item" />
     </use>
   </use>
+
+  <g id="no-things">
+    <rect height="100%" width="100%" fill="black"/>
+    <use id="no-things-message" href="#mixed-text-center-mid" height="100%" fill="fb-yellow">
+      <set href="#header/text" attributeName="text-buffer" to="Nothing to control"/>
+      <set href="#copy/text" attributeName="text-buffer"
+           to="Add things to control from the settings page or wait to be loaded."/>
+    </use>
+  </g>
+
+  <g id="no-connection">
+    <rect height="100%" width="100%" fill="black"/>
+    <use id="no-things-message" href="#mixed-text-center-mid" height="100%" fill="fb-red">
+      <set href="#header/text" attributeName="text-buffer" to="No connection"/>
+      <set href="#copy/text" attributeName="text-buffer"
+           to="Nothing to do while disconnected. Waiting for the companion..."/>
+    </use>
+  </g>
 
 </svg>

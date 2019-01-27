@@ -3,13 +3,19 @@
 
     <link rel="stylesheet" href="styles.css" />
     <link rel="import" href="/mnt/sysassets/widgets_common.gui" />
-    
+
+    <!-- Tiles -->
     <link rel="import" href="/mnt/sysassets/widgets/baseview_widget.gui" />
     <link rel="import" href="/mnt/sysassets/widgets/tile_list_widget.gui" />
 
+    <!-- Mixed text -->
+    <link rel="stylesheet" href="/mnt/sysassets/widgets/dynamic_textarea.css"/>
+    <link rel="import" href="/mnt/sysassets/widgets/dynamic_textarea.gui"/>
+    <link rel="import" href="/mnt/sysassets/widgets/mixed_text_widget.gui"/>
+
+    <!-- Marque -->
     <link rel="import" href="/mnt/sysassets/widgets/marquee_text_widget.gui" />
     <link rel="import" href="/mnt/sysassets/widgets/square_button_widget.gui" />
 
-    
   </defs>
 </svg>
